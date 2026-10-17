@@ -1,0 +1,8 @@
+mlx
+laya-mlx
+numpy
+pandas
+yfinance
+httpx
+fastapi
+uvicorn[standard]

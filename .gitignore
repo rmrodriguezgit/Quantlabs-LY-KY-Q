@@ -1,0 +1,12 @@
+node_modules/
+dist/
+__pycache__/
+.venv/
+backend/models/
+backend/trades.jsonl
+
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
