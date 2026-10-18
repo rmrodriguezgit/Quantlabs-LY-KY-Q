@@ -8,7 +8,8 @@ server.py — adaptador FastAPI/WebSocket entre laya_mlx_engine y el dashboard R
   WS   /ws           snapshot JSON cada ~1 s
 
 Solo paper trading: no hay ejecución de órdenes reales.
-Variables de entorno: LAYA_SYNTHETIC=1 (datos simulados, sin red), LAYA_GATE=1 (compuerta Laya).
+Variables de entorno: LAYA_SYNTHETIC=1 (datos simulados, sin red).
+La compuerta Laya se activa automáticamente en cada arranque.
 """
 from __future__ import annotations
 
@@ -144,7 +145,7 @@ class Runtime:
         self.feed, self.poly = Feed(), PolyFeed()
         self.G = self.Q = None
         self.phase, self.msg, self.meta = "booting", "Iniciando…", {}
-        self.cfg = dict(bankroll=1000.0, risk="balanced", fee=0.0, use_laya=bool(os.getenv("LAYA_GATE")))
+        self.cfg = dict(bankroll=1000.0, risk="balanced", fee=0.0, use_laya=True)
         self.gate, self.gate_err = None, None
         self.trades: list[dict] = []
         self.open: dict | None = None

@@ -1,6 +1,6 @@
 # Quantlabs-LY-KY-Q
 
-**Quantlabs LY-KY-Q · v0.1.0**
+**Quantlabs LY-KY-Q · v0.1.1**
 
 Motor local de señales para los mercados "Bitcoin Up or Down" de 5 minutos, con dashboard en React.
 Solo paper trading: no envía órdenes reales.
@@ -54,8 +54,8 @@ Opciones útiles:
 
 - `python laya_mlx_engine.py train` reentrena y guarda en `backend/models/`.
 - `LAYA_SYNTHETIC=1 python server.py` usa datos simulados, sin red (para probar el dashboard).
-- `LAYA_GATE=1 python server.py` activa la compuerta Laya (descarga `aac6fef/laya-mlx` la primera vez).
-  También se activa desde el panel.
+- La compuerta Laya se activa automáticamente en cada reinicio (descarga `aac6fef/laya-mlx` la primera vez).
+  Puede desactivarse temporalmente desde el panel; el siguiente arranque vuelve a activarla.
 - `VITE_LAYA_WS` y `VITE_LAYA_API` cambian las direcciones del backend en el frontend.
 
 ## Lo que debes saber antes de confiar en una señal
@@ -80,6 +80,11 @@ Los paper trades se guardan en `backend/trades.jsonl`.
 La versión se mantiene en `frontend/package.json` y aparece automáticamente en el encabezado. Cada actualización debe incrementar la versión según SemVer, sincronizar `frontend/package-lock.json`, actualizar este README y crear un commit. Publicar los commits en `origin/main` según la autorización del propietario.
 
 ## Historial de versiones
+
+### v0.1.1 — 2026-10-17
+
+- Compuerta Laya activada por defecto en cada arranque, sin depender de variables de entorno.
+- El control del panel permite desactivarla durante la sesión actual.
 
 ### v0.1.0 — 2026-10-17
 
